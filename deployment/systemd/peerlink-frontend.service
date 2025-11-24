@@ -1,0 +1,27 @@
+[Unit]
+Description=PeerLink Next.js Frontend Service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/peerlink/ui
+ExecStart=/usr/bin/npm start
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=peerlink-frontend
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Environment variables
+Environment="NODE_ENV=production"
+Environment="PORT=3000"
+Environment="HOSTNAME=0.0.0.0"
+
+[Install]
+WantedBy=multi-user.target

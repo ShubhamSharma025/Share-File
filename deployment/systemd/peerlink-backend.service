@@ -1,0 +1,25 @@
+[Unit]
+Description=PeerLink Java Backend Service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/peerlink
+ExecStart=/usr/bin/java -Xmx512m -Xms256m -jar target/p2p-1.0-SNAPSHOT.jar
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=peerlink-backend
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Environment variables
+Environment="JAVA_OPTS=-Djava.security.egd=file:/dev/./urandom"
+
+[Install]
+WantedBy=multi-user.target
