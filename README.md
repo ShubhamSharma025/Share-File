@@ -1,6 +1,10 @@
 # PeerLink - P2P File Sharing Application
 
 PeerLink is a peer-to-peer file sharing application that allows users to share files directly between devices using a simple invite code system.
+### Drag and Drop File Upload
+This feature allows users to quickly share files without traditional file explorers.
+
+![Screenshot of PeerLink's drag and drop area](peer.png)
 
 ## Project Structure
 
